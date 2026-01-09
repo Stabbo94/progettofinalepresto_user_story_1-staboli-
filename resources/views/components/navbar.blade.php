@@ -9,35 +9,55 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('homepage')}}">Home</a>
                 </li>
-                @auth
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ciao {{Auth::user()->name}}!
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('form-logout').submit()">Logout</a>
-                            <form action="{{route('logout')}}" method="POST" id="form-logout" class="d-none">@csrf</form>
-                        </li>
-                        <li>
-                            <a href="{{route('create.article')}}" class="dropdown-item">Crea un articolo</a>
-                        </li> 
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{route('article.index')}}">Tutti gli articoli</a>
                 </li>
-                @else
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ciao Nuovo Ospite!
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('login')}}">Login</a></li>
-                        <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                    </ul>
-                </li>
-                @endauth
-            </ul>
-        </li>
-    </ul>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+                    Categorie
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach ($categories as $category)
+                    <li>
+                        <a class="dropdown-item" 
+                        href="{{ route('byCategory', ['category' => $category]) }}">{{ $category->name }}</a>
+                    </li>
+                    @if (!$loop->last)
+                    <hr class="dropdown-divider">
+                    @endif
+                    @endforeach
+                </ul>
+            </li>
+            @auth
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ciao {{Auth::user()->name}}!
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('form-logout').submit()">Logout</a>
+                        <form action="{{route('logout')}}" method="POST" id="form-logout" class="d-none">@csrf</form>
+                    </li>
+                    <li>
+                        <a href="{{route('create.article')}}" class="dropdown-item">Crea un articolo</a>
+                    </li> 
+                </ul>
+            </li>
+            @else
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ciao Nuovo Ospite!
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('login')}}">Login</a></li>
+                    <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                </ul>
+            </li>
+            @endauth
+        </ul>
+    </li>
+</ul>
 </div>
 </div>
 </nav>
