@@ -69,6 +69,10 @@
           <p>
             <a href="#!" class="text-reset">Supporto</a>
           </p>
+          <p>
+            Vuoi diventare revisore?
+            <a href="{{route('become.revisor')}}" class="text-reset"> Invia la richiesta!</a>
+          </p>
         </div>
         <!-- Grid column -->
 
@@ -93,7 +97,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2025 Copyright:
+    © 2026 Copyright:
     <a class="text-reset fw-bold" href="#">Presto.it</a>
   </div>
   <!-- Copyright -->

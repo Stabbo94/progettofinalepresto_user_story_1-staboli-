@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"><i class="fas fa-lightbulb me-2"></i>Presto.it</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,22 +41,33 @@
                     <li>
                         <a href="{{route('create.article')}}" class="dropdown-item">Crea un articolo</a>
                     </li> 
-                </ul>
-            </li>
-            @else
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Ciao Nuovo Ospite!
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{route('login')}}">Login</a></li>
-                    <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                </ul>
-            </li>
-            @endauth
-        </ul>
-    </li>
+                    @if (Auth::user()->is_revisor)
+                    <li>
+                        <a class="dropdown-item d-flex justify-content-between align-items-center" 
+                        href="{{ route('revisor.index') }}">
+                        Zona revisore
+                        <span class="badge rounded-pill bg-danger">
+                            {{ \App\Models\Article::toBeRevisedCount() }}
+                        </span>
+                    </a>
+                </li>
+                @endif
+            </ul>
+        </li>
+        @else
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Ciao Nuovo Ospite!
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{route('login')}}">Login</a></li>
+                <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
+                <li><hr class="dropdown-divider"></li>
+            </ul>
+        </li>
+        @endauth
+    </ul>
+</li>
 </ul>
 </div>
 </div>
