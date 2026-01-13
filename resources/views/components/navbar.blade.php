@@ -45,7 +45,7 @@
                     <li>
                         <a class="dropdown-item d-flex justify-content-between align-items-center" 
                         href="{{ route('revisor.index') }}">
-                        Zona revisore
+                        In revisione
                         <span class="badge rounded-pill bg-danger">
                             {{ \App\Models\Article::toBeRevisedCount() }}
                         </span>

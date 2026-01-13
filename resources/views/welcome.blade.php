@@ -2,13 +2,13 @@
     
     <!-- Snippet codice flash message -->
     @if (session()->has('errorMessage'))
-    <div class="alert alert-danger text-center shadow rounded w-50">
+    <div class="alert alert-danger text-center shadow rounded w-100">
         {{ session('errorMessage') }}
     </div>
     @endif
     
     @if (session()->has('message'))
-    <div class="alert alert-success text-center shadow rounded w-50">
+    <div class="alert alert-success text-center shadow rounded w-100">
         {{ session('message') }}
     </div>
     @endif
