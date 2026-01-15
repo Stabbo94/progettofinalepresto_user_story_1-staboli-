@@ -61,5 +61,26 @@
     filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-/* resources/css/app.css */
+
+.locale-link {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+[data-bs-theme="crema"] .locale-link:hover {
+    background-color: rgba(59, 130, 246, 0.1); 
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px); 
+    filter: brightness(1.2);
+}
+
+
+.locale-link img {
+    border-radius: 4px;
+    display: block;
+}
 

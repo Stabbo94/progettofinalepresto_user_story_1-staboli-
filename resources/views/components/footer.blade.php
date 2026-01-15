@@ -1,105 +1,53 @@
-<!-- Footer -->
 <footer class="text-center text-lg-start bg-body-tertiary text-muted">
-  <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
     <div class="me-5 d-none d-lg-block">
-      <span>Seguici sui social!</span>
+      <span>{{ __('ui.footerFollow') }}</span>
     </div>
-    <!-- Left -->
-
-    <!-- Right -->
+    
     <div>
-      <a href="" class="me-4 text-reset text-decoration-none">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset text-decoration-none">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset text-decoration-none">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset text-decoration-none">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset text-decoration-none">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset text-decoration-none">
-        <i class="fab fa-github"></i>
-      </a>
+      <a href="" class="me-4 text-reset text-decoration-none"><i class="fab fa-facebook-f"></i></a>
+      <a href="" class="me-4 text-reset text-decoration-none"><i class="fab fa-twitter"></i></a>
+      <a href="" class="me-4 text-reset text-decoration-none"><i class="fab fa-google"></i></a>
+      <a href="" class="me-4 text-reset text-decoration-none"><i class="fab fa-instagram"></i></a>
+      <a href="" class="me-4 text-reset text-decoration-none"><i class="fab fa-linkedin"></i></a>
+      <a href="" class="me-4 text-reset text-decoration-none"><i class="fab fa-github"></i></a>
     </div>
-    <!-- Right -->
   </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
+  
   <section class="">
     <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
       <div class="row mt-3">
-        <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-lightbulb me-2"></i>Presto S.r.l.
           </h6>
-          <p>
-            Il sito di annunci e prodotti per ogni esigenza.
-          </p>
+          <p>{{ __('ui.footerDesc') }}</p>
         </div>
-        <!-- Grid column -->
-
-
-        <!-- Grid column -->
+        
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Link utili
-          </h6>
+          <h6 class="text-uppercase fw-bold mb-4">{{ __('ui.usefulLinks') }}</h6>
+          <p><a href="#!" class="text-reset">{{ __('ui.pricing') }}</a></p>
+          <p><a href="#!" class="text-reset">{{ __('ui.settings') }}</a></p>
+          <p><a href="#!" class="text-reset">{{ __('ui.orders') }}</a></p>
+          <p><a href="#!" class="text-reset">{{ __('ui.support') }}</a></p>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Impostazioni</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Ordini</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Supporto</a>
-          </p>
-          <p>
-            Vuoi diventare revisore?
-            <a href="{{route('become.revisor')}}" class="text-reset"> Invia la richiesta!</a>
+            {{ __('ui.becomeRevisor') }}
+            <a href="{{route('become.revisor')}}" class="text-reset"> {{ __('ui.sendRequest') }}</a>
           </p>
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
+        
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
+          <h6 class="text-uppercase fw-bold mb-4">{{ __('ui.contacts') }}</h6>
           <p><i class="fas fa-home me-3"></i> Via Misurina 75, 00135 Roma RM</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            info@presto.com
-          </p>
+          <p><i class="fas fa-envelope me-3"></i> info@presto.com</p>
           <p><i class="fas fa-phone me-3"></i> + 39 351 956 1403</p>
           <p><i class="fas fa-print me-3"></i> + 39 06 331 3509</p>
         </div>
-        <!-- Grid column -->
       </div>
-      <!-- Grid row -->
     </div>
   </section>
-  <!-- Section: Links  -->
-
-  <!-- Copyright -->
+  
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2026 Copyright:
-    <a class="text-reset fw-bold" href="#">Presto.it</a>
+    © 2026 Copyright: <a class="text-reset fw-bold" href="#">Presto.it</a>
   </div>
-  <!-- Copyright -->
 </footer>
-<!-- Footer -->

@@ -32,3 +32,6 @@ Route::get('make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->na
 
 // Ricerca articoli
 Route::get('/search/article', [ArticleController::class, 'searchArticles'])->name('article.search');
+
+// Cambio lingua
+Route::post('lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');
