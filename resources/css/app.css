@@ -84,3 +84,12 @@
     display: block;
 }
 
+.img-preview{
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+}
+

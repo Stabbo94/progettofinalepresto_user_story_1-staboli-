@@ -45,12 +45,43 @@
                 @enderror
             </div>
             
-            <div class="row mt-4">
-                <div class="col-12 mb-5">
-                    <button type="submit" class="btn btn-primary w-100 text-start fw-bolder">{{ __('ui.createBtn') }}</button>
-                </div>
+            <div class="mb-3">
+                <input type="file" wire:model.live="temporary_images" multiple 
+                class="form-control shadow @error('temporary_images.*') is-invalid @enderror" placeholder="Img/">
+                @error('temporary_images.*')
+                <p class="fst-italic text-danger">{{ $message }}</p>
+                @enderror
+                @error('temporary_images')
+                <p class="fst-italic text-danger">{{ $message }}</p>
+                @enderror
             </div>
             
-        </form>
+            @if (!empty($images))
+            <div class="mb-3">
+                <p>Photo preview:</p>
+                <div class="row border border-4 border-success rounded shadow py-4">
+                    @foreach ($images as $key => $image)
+                    <div class="col d-flex flex-column align-items-center my-3">
+                        <div class="img-preview mx-auto shadow rounded" 
+                        style="background-image: url({{ $image->temporaryUrl() }});">
+                    </div>
+                    <button type="button" 
+                    class="btn btn-danger mt-1 d-inline-flex align-items-center justify-content-center p-0 rounded-3" 
+                    style="width: 40px; height: 40px;" 
+                    wire:click="removeImage({{ $key }})">
+                    x
+                </button>
+            </div>
+            @endforeach
+        </div>
     </div>
+    @endif
+    <div class="row mt-4">
+        <div class="col-12 mb-5">
+            <button type="submit" class="btn btn-primary w-100 text-start fw-bolder">{{ __('ui.createBtn') }}</button>
+        </div>
+    </div>
+    
+</form>
+</div>
 </div>

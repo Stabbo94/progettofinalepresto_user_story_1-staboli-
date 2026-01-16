@@ -21,14 +21,21 @@
                 <div class="row justify-content-center pt-5">
                     <div class="col-md-8">
                         <div class="row justify-content-center">
+                            @if ($article_to_check->images->count())
+                            @foreach ($article_to_check->images as $key => $image)
+                            <div class="col-6 col-md-4 mb-4">
+                                <img src="{{ Storage::url($image->path) }}" class="img-fluid rounded shadow"
+                                alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article_to_check->title }}'">
+                            </div>
+                            @endforeach
+                            @else
                             @for ($i = 0; $i < 6; $i++)
                             <div class="col-6 col-md-4 mb-4 text-center">
-                                <img src="https://picsum.photos/300" 
-                                class="img-fluid rounded shadow" 
-                                alt="immagine segnaposto"
-                                >
+                                <img src="https://picsum.photos/300" alt="immagine segnaposto"
+                                class="img-fluid rounded shadow">
                             </div>
                             @endfor
+                            @endif
                         </div>
                     </div>
                     
@@ -37,7 +44,7 @@
                             <h1 class="text-start">{{ $article_to_check->title }}</h1>
                             <h3 class="text-start">{{ __('ui.uploadedBy') }}: {{ $article_to_check->user->name }}</h3>
                             <h4 class="text-start">EUR {{ number_format($article_to_check->price,2,',','.')}}</h4>
-                            <<h4 class="text-start fst-italic text-muted">#{{ __("ui." . $article_to_check->category->name) }}</h4>
+                            <h4 class="text-start fst-italic text-muted">#{{ __("ui." . $article_to_check->category->name) }}</h4>
                             <p class="h6 text-start">{{ $article_to_check->description }}</p>
                         </div>
                         
