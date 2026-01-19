@@ -13,7 +13,7 @@
                     
                     <div class="col-md-8">
                         <div class="row">
-                            {{-- Inizio integrazione codice dallo screenshot --}}
+                            
                             @foreach ($article_to_check->images as $key => $image)
                             <div class="col-12 mb-4">
                                 <div class="card shadow-sm border-0 overflow-hidden">
@@ -39,7 +39,7 @@
                                             </div>
                                         </div>
                                         
-                                        {{-- Colonna Ratings (Logica dello screenshot) --}}
+                                        
                                         <div class="col-md-4 p-3">
                                             <h5 class="fw-bold border-bottom pb-2">Ratings</h5>
                                             <div class="mt-2">
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                             @endforeach
-                            {{-- Fine integrazione --}}
+                            
                         </div>
                     </div>
                     
