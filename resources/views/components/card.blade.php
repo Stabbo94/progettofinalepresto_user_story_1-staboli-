@@ -1,6 +1,6 @@
 <div class="card shadow-sm text-center border border-white rounded-4 overflow-hidden bg-transparent h-100 w-100">
     <div class="ratio ratio-1x1">
-        <img src="{{ $article->images->isNotEmpty() ? $article->images->first()->getUrl(300, 300) : 'https://picsum.photos/200' }}" 
+        <img src="{{ $article->images->isNotEmpty() ? $article->images->first()->getUrl() : 'https://picsum.photos/200' }}" 
         class="card-img-top" alt="Immagine dell'articolo {{ $article->title }}">
     </div>
     
