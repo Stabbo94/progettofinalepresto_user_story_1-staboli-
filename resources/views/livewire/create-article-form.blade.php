@@ -64,7 +64,7 @@
                     <div class="col-12 col-sm-6 col-md-4 d-flex flex-column align-items-center my-3">
                         <img src="{{ $image->temporaryUrl() }}" 
                         class="img-fluid shadow rounded" 
-                        style="max-height: 200px; width: auto; object-fit: contain;" 
+                        style="width: 200px; height: 200px; object-fit: contain;" 
                         alt="Preview">
                         
                         <button type="button" 

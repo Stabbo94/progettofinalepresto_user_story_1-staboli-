@@ -1,8 +1,7 @@
 <div class="card shadow-sm text-center border border-white rounded-4 overflow-hidden bg-transparent h-100 w-100">
     <div class="ratio ratio-1x1">
-        <img src="{{ $article->images->isNotEmpty() ? Storage::url($article->images->first()->path) : 'https://picsum.photos/200' }}" 
-        class="card-img-top object-fit-cover" 
-        alt="Immagine dell'articolo {{ $article->title }}">
+        <img src="{{ $article->images->isNotEmpty() ? $article->images->first()->getUrl(300, 300) : 'https://picsum.photos/200' }}" 
+        class="card-img-top" alt="Immagine dell'articolo {{ $article->title }}">
     </div>
     
     <div class="card-body p-3 d-flex flex-column"> 
