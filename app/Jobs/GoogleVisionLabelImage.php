@@ -9,6 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Google\Cloud\Vision\V1\ImageAnnotatorClient;
+use Illuminate\Support\Facades\Log; // Importante per il debug
 
 class GoogleVisionLabelImage implements ShouldQueue
 {
@@ -28,24 +29,35 @@ class GoogleVisionLabelImage implements ShouldQueue
             return;
         }
         
-        $image = file_get_contents(storage_path('app/public/' . $i->path));
         
-        putenv('GOOGLE_APPLICATION_CREDENTIALS=' . base_path('google_credential.json'));
+        $credentialPath = base_path('google_credential.json');
+        putenv("GOOGLE_APPLICATION_CREDENTIALS=$credentialPath");
         
-        $imageAnnotator = new ImageAnnotatorClient();
-        $response = $imageAnnotator->labelDetection($image);
-        $labels = $response->getLabelAnnotations();
-        
-        if ($labels) {
-            $result = [];
-            foreach ($labels as $label) {
-                $result[] = $label->getDescription();
+        try {
+            
+            $imagePath = storage_path('app/public/' . $i->path);
+            $imageContent = file_get_contents($imagePath);
+            
+            
+            $imageAnnotator = new ImageAnnotatorClient();
+            $response = $imageAnnotator->labelDetection($imageContent);
+            $labels = $response->getLabelAnnotations();
+            
+            if ($labels) {
+                $result = [];
+                foreach ($labels as $label) {
+                    $result[] = $label->getDescription();
+                }
+                
+                $i->labels = $result;
+                $i->save();
             }
             
-            $i->labels = $result;
-            $i->save();
+            $imageAnnotator->close();
+            
+        } catch (\Exception $e) {
+            
+            Log::error("GOOGLE VISION ERROR (Image ID: {$this->article_image_id}): " . $e->getMessage());
         }
-        
-        $imageAnnotator->close();
     }
 }

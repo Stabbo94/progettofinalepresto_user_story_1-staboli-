@@ -3,6 +3,7 @@
 @import 'bootstrap-icons';
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
+/* --- TEMA CUSTOM CREMA --- */
 [data-bs-theme="crema"] {
     --bs-body-bg: #0b0e14;
     --bs-body-bg-rgb: 11, 14, 20;
@@ -18,10 +19,12 @@
     --bs-link-hover-color: #93c5fd;
 }
 
+/* --- TRANSIZIONI GLOBALI --- */
 * {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* --- NAVBAR & UI --- */
 [data-bs-theme="crema"] .navbar, 
 [data-bs-theme="crema"] .nav-link, 
 [data-bs-theme="crema"] .navbar-brand {
@@ -62,7 +65,7 @@
     filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-
+/* --- SELETTORE LINGUA --- */
 .locale-link {
     display: inline-block;
     padding: 5px;
@@ -79,18 +82,51 @@
     filter: brightness(1.2);
 }
 
-
 .locale-link img {
     border-radius: 4px;
     display: block;
 }
 
-.img-preview{
-    
+/* --- PREVIEW IMMAGINI CARICAMENTO --- */
+.img-preview {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100px;
     width: 100px;
+    border-radius: 8px;
 }
 
+/* --- FIX CARD HOMEPAGE & LISTA ARTICOLI --- */
+.card-img-fixed {
+    height: 200px !important;
+    width: 100% !important;
+    background-color: #1a1a1a !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+}
+
+.card-img-fixed img {
+    max-height: 100% !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* --- DASHBOARD REVISORE --- */
+.img-custom-revisor {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .sticky-md-top {
+        position: sticky !important;
+        z-index: 1020;
+    }
+}
