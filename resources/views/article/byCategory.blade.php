@@ -5,9 +5,9 @@
                 <h1 class="display-1">{{ __('ui.exploreCategory') }}: {{ __("ui.$category->name") }}</h1>
             </div>
         </div>
-        <div class="row height-custom justify-content-center align-items-center py-5">
+        <div class="row g-4 my-5 justify-content-center">
             @forelse ($articles as $article)
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
                 <x-card :article="$article" />
             </div>
             @empty

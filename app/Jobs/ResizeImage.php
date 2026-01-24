@@ -34,14 +34,15 @@ class ResizeImage implements ShouldQueue
         Image::load($srcPath)
         ->watermark(
             base_path('resources/img/watermark.png'),
-            width: 150,
-            height: 150,
-            paddingX: 5,
-            paddingY: 5,
+            width: 70,
+            height: 70,
+            paddingX: 10,
+            paddingY: 10,
             paddingUnit: Unit::Percent
             )
             ->save($srcPath); 
             
             chmod($srcPath, 0664);
         }
+        
     }

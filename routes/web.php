@@ -7,19 +7,20 @@ use App\Http\Controllers\RevisorController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
-// Creazione articolo
+// Creazione articolo;
 Route::get('/create/article', [ArticleController::class, 'create'])->name('create.article');
 
-// Indice articoli
+// Indice articoli;
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 
-// Rotta parametrica per pagina di dettaglio
+// Rotta parametrica per pagina di dettaglio;
 Route::get('/show/article/{article}', [ArticleController::class, 'show'])->name('article.show');
 
-// Rotta parametrica per link categorie
+// Rotta parametrica per link categorie;
 Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->name('byCategory');
 
-// Area revisori
+
+// Area revisori;
 Route::get('revisor/index', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
 
 Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->name('accept');
@@ -30,8 +31,9 @@ Route::get('revisor/request', [RevisorController::class, 'becomeRevisor'])->midd
 
 Route::get('make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
 
-// Ricerca articoli
+
+// Ricerca articoli;
 Route::get('/search/article', [ArticleController::class, 'searchArticles'])->name('article.search');
 
-// Cambio lingua
+// Cambio lingua;
 Route::post('lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');

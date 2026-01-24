@@ -35,23 +35,25 @@
         </div>
     </div>
     
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
         <div class="row justify-content-center align-items-center text-center py-5">
             <div class="col-12">
                 <h2 class="display-1">{{ __('ui.featuredArticles') }}</h2>
             </div>
         </div>
         
-        <div class="row justify-content-center align-items-center my-3">
-            @forelse ($articles as $article)
-            <div class="col-12 col-md-4 p-3">
-                <x-card :article="$article"/>
+        <div class="container">
+            <div class="row g-4 my-3">
+                @forelse ($articles as $article)
+                <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
+                    <x-card :article="$article"/>
+                </div>
+                @empty
+                <div class="col-12 text-center">
+                    <h3 class="mt-5">{{ __('ui.noArticles') }}</h3>
+                </div>
+                @endforelse
             </div>
-            @empty
-            <div class="col-12 text-center">
-                <h3>{{ __('ui.noArticles') }}</h3>
-            </div>
-            @endforelse
         </div>
     </div>
 </x-layout>
